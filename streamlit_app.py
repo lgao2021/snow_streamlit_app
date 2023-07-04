@@ -30,6 +30,14 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_ch
 
 # normalize fruityvice response
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+
+# add snowfalke connection to retrive data
+my_cnx - snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur - my_cnx.cursor()
+my_cur.execute("select current_user(), current_account(), current_region()")
+my_data_raw = my_cur.fetchone()
+streamlit.text("Hello from snowflake")
+streamlit.text(my_data_raw)
 streamlit.dataframe(fruityvice_normalized)
 
 
