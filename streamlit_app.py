@@ -13,7 +13,7 @@ my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.co
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
 streamlit.header('Fruityvice Fruit Advice')
-fruityvice_response = requestes.get("https://fruityvice.com/api/fruit/watermenon")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermenon")
 streamlit.text(fruityvice_response.json)
 
 # let's add a pick lit for the selection
