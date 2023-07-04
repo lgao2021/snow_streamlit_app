@@ -1,1 +1,2 @@
-#created streamlit_app.py
+import streamlit
+streamlit.title("My stream lit app")
