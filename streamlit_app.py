@@ -14,7 +14,7 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 
 streamlit.header('Fruityvice Fruit Advice')
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermenon")
-streamlit.text(fruityvice_response.json)
+streamlit.text(fruityvice_response.json())
 
 # let's add a pick lit for the selection
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
