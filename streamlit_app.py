@@ -1,5 +1,7 @@
 import streamlit
 import pandas
+import requests
+
 
 streamlit.header('Breakfast Menu')
 streamlit.text('🥑🍞Omega 3 & Blueberry Oatmeal')
@@ -9,6 +11,10 @@ streamlit.text('🥑🍞Hard-Boiled Free-Range Egg')
 streamlit.header('Build your own Fruit Smoothie $3.60')
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
+
+streamlit.header('Fruityvice Fruit Advice')
+fruityvice_response = requestes.get("https://fruityvice.com/api/fruit/watermenon")
+streamlit.text(fruityvice_response.json)
 
 # let's add a pick lit for the selection
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
